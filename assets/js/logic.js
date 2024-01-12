@@ -1,6 +1,7 @@
 var timeEl = document.querySelector("#time");
 var startScreenDiv = document.querySelector("#start-screen");
 var endScreenDiv = document.querySelector("#end-screen");
+var finalScoreSpan = document.querySelector("#final-score")
 var startBtn = document.querySelector("#start");
 var questionsDiv = document.querySelector("#questions")
 var questionH2 = document.querySelector("#question-title")
@@ -97,4 +98,5 @@ function checkAnswer(index){
 function endQuiz(){
     questionsDiv.className = "hide";
     endScreenDiv.className = "start";
+    finalScoreSpan.textContent = score;
 }
