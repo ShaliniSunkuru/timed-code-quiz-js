@@ -1,5 +1,6 @@
 var timeEl = document.querySelector("#time");
 var startScreenDiv = document.querySelector("#start-screen");
+var endScreenDiv = document.querySelector("#end-screen");
 var startBtn = document.querySelector("#start");
 var questionsDiv = document.querySelector("#questions")
 var questionH2 = document.querySelector("#question-title")
@@ -21,7 +22,7 @@ function setTimer(){
             timeEl.textContent = timeLeft;
         }else{ //Stop timer at 0
             clearInterval(timeInterval);
-
+            endQuiz();
         }
         
     }, 1000);    
@@ -67,22 +68,28 @@ function renderQuestion(){
 choicesDiv.addEventListener("click", function(e){
     // var element = e.target;
     // var elementIndex = element.getAttribute("data-index");
+
+    //render next question
     if(currentQuestionIndex < questions.length - 1){
         currentQuestionIndex++;
         renderQuestion();
     }else{
-        // endQuiz();
+        endQuiz();
         
     }
 
     
     //check if chosen answer is correct
 
-
+    checkAnswer();
         
     })
 function checkAnswer(){
-    
-    
+       
         
+}
+
+function endQuiz(){
+    questionsDiv.className = "hide";
+    endScreenDiv.className = "start";
 }
