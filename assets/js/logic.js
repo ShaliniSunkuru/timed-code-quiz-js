@@ -1,11 +1,12 @@
 var timeEl = document.querySelector("#time");
 var startScreenDiv = document.querySelector("#start-screen");
 var endScreenDiv = document.querySelector("#end-screen");
-var finalScoreSpan = document.querySelector("#final-score")
 var startBtn = document.querySelector("#start");
 var questionsDiv = document.querySelector("#questions")
 var questionH2 = document.querySelector("#question-title")
 var choicesDiv = document.querySelector("#choices");
+var feedbackDiv = document.querySelector("#feedback");
+var finalScoreSpan = document.querySelector("#final-score")
 var currentQuestionIndex = 0;
 var currentQuestion;
 var score = 0;
@@ -75,6 +76,11 @@ choicesDiv.addEventListener("click", function(e){
     
     //check if chosen answer is correct
     checkAnswer(elementIndex);
+    feedbackDiv.classList.remove("hide");
+    setTimeout(function(){
+        feedbackDiv.classList.add("hide");
+    }, 400);
+    
     
     //render next question
     if(currentQuestionIndex < questions.length - 1){
@@ -89,7 +95,9 @@ choicesDiv.addEventListener("click", function(e){
 function checkAnswer(index){
        if(index === currentQuestion.correctChoice){
         score++;
+        feedbackDiv.textContent = "Correct"
        }else{
+        feedbackDiv.textContent = "Wrong"
         timeLeft = timeLeft - 10;
        }
         
@@ -100,3 +108,5 @@ function endQuiz(){
     endScreenDiv.className = "start";
     finalScoreSpan.textContent = score;
 }
+
+
