@@ -7,10 +7,12 @@ var questionH2 = document.querySelector("#question-title")
 var choicesDiv = document.querySelector("#choices");
 var currentQuestionIndex = 0;
 var currentQuestion;
+var score = 0;
+var timeLeft = 75;
 
 function setTimer(){
-    var timeLeft = 75;
-
+    
+    timeLeft = 75;
     //display time left before starting timer
     timeEl.textContent = timeLeft;
 
@@ -66,9 +68,13 @@ function renderQuestion(){
 
 //click event for question choice    
 choicesDiv.addEventListener("click", function(e){
-    // var element = e.target;
-    // var elementIndex = element.getAttribute("data-index");
 
+    var element = e.target;
+    var elementIndex = element.getAttribute("data-index");
+    
+    //check if chosen answer is correct
+    checkAnswer(elementIndex);
+    
     //render next question
     if(currentQuestionIndex < questions.length - 1){
         currentQuestionIndex++;
@@ -77,15 +83,14 @@ choicesDiv.addEventListener("click", function(e){
         endQuiz();
         
     }
-
-    
-    //check if chosen answer is correct
-
-    checkAnswer();
-        
-    })
-function checkAnswer(){
        
+    })
+function checkAnswer(index){
+       if(index === currentQuestion.correctChoice){
+        score++;
+       }else{
+        timeLeft = timeLeft - 10;
+       }
         
 }
 
