@@ -7,10 +7,14 @@ var questionH2 = document.querySelector("#question-title")
 var choicesDiv = document.querySelector("#choices");
 var feedbackDiv = document.querySelector("#feedback");
 var finalScoreSpan = document.querySelector("#final-score")
+var initalsIp = document.querySelector("#initials")
+var submitBtn = document.querySelector("#submit")
 var currentQuestionIndex = 0;
 var currentQuestion;
 var score = 0;
 var timeLeft = 75;
+var highscores = []
+
 
 function setTimer(){
     
@@ -109,4 +113,24 @@ function endQuiz(){
     finalScoreSpan.textContent = score;
 }
 
+submitBtn.addEventListener("click", function(){
+    //save highscores to localStorage
+    if(localStorage.length > 0){
+        highscores = JSON.parse(localStorage.getItem("highscores"));
+    }
+    var highscore = {
+        initials: initalsIp.value,
+        score: score
+    }
+    highscores.push(highscore);
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    //open highscores page
+    loadHighscoresPage();
+
+})
+
+function loadHighscoresPage(){
+    window.location = "highscores.html";
+}
 
