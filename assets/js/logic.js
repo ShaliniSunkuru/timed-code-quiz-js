@@ -1,4 +1,5 @@
 var timeEl = document.querySelector("#time");
+var startBtn = document.querySelector("#start");
 
 function setTimer(){
     var timeLeft = 60;
@@ -9,12 +10,19 @@ function setTimer(){
         if(timeLeft > 0){
             timeLeft--;
             timeEl.textContent = timeLeft;
-        }else{
+        }else{ //Stop timer at 0
             clearInterval(timeInterval);
 
         }
         
-    }, 1000);
-    
+    }, 1000);    
 }
+
+startBtn.addEventListener("click", function(){
+    //render first question
+
+    //Start timer
+    setTimer();
+})
+
 
