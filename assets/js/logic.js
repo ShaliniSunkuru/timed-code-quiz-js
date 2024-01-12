@@ -1,4 +1,5 @@
 var timeEl = document.querySelector("#time");
+var sctartScreenDiv = document.querySelector("#start-screen");
 var startBtn = document.querySelector("#start");
 var questionsDiv = document.querySelector("#questions")
 var questionH2 = document.querySelector("#question-title")
@@ -25,6 +26,9 @@ function setTimer(){
 }
 
 startBtn.addEventListener("click", function(){
+
+    //Hide start screen
+    sctartScreenDiv.className = "hide";
    
     //render first question
     renderQuestion(questions[0]);
