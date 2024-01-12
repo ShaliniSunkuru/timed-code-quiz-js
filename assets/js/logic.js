@@ -5,7 +5,10 @@ var questionH2 = document.querySelector("#question-title")
 var choicesDiv = document.querySelector("#choices");
 
 function setTimer(){
-    var timeLeft = 60;
+    var timeLeft = 75;
+
+    //display time left before starting timer
+    timeEl.textContent = timeLeft;
 
     //set time interval for countdown timer
 
