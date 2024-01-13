@@ -39,7 +39,7 @@ function setTimer(){
 startBtn.addEventListener("click", function(){
 
     //Hide start screen
-    startScreenDiv.className = "hide";
+    startScreenDiv.classList.toggle("hide");
    
     //render first question
     currentQuestionIndex = 0;
@@ -52,7 +52,7 @@ startBtn.addEventListener("click", function(){
 function renderQuestion(){
     
     //Show Question section: change class from hide to start
-    questionsDiv.className = "start";
+    questionsDiv.classList.remove("hide");
 
     //current question
     currentQuestion = questions[currentQuestionIndex];
@@ -108,8 +108,8 @@ function checkAnswer(index){
 }
 
 function endQuiz(){
-    questionsDiv.className = "hide";
-    endScreenDiv.className = "start";
+    questionsDiv.classList.toggle("hide");
+    endScreenDiv.classList.toggle("hide");
     finalScoreSpan.textContent = score;
 }
 
