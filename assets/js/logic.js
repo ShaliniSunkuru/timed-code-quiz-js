@@ -13,6 +13,7 @@ var currentQuestionIndex = 0;
 var currentQuestion;
 var score = 0;
 var timeLeft = 75;
+var timeInterval;
 var highscores = []
 
 
@@ -24,12 +25,11 @@ function setTimer(){
 
     //set time interval for countdown timer
 
-    var timeInterval = setInterval(function(){
+    timeInterval = setInterval(function(){
         if(timeLeft > 0){
             timeLeft--;
             timeEl.textContent = timeLeft;
-        }else{ //Stop timer at 0
-            clearInterval(timeInterval);
+        }else{ //Stop timer and end quiz at 0
             endQuiz();
         }
         
@@ -111,6 +111,7 @@ function endQuiz(){
     questionsDiv.classList.toggle("hide");
     endScreenDiv.classList.toggle("hide");
     finalScoreSpan.textContent = score;
+    clearInterval(timeInterval);
 }
 
 submitBtn.addEventListener("click", function(){
