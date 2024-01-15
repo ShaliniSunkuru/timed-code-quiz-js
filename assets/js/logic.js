@@ -119,18 +119,25 @@ submitBtn.addEventListener("click", function(){
     if(localStorage.length > 0){
         highscores = JSON.parse(localStorage.getItem("highscores"));
     }
-    var highscore = {
-        initials: initalsIp.value,
-        score: score
+    if(initalsIp.value.length > 3){ //check if length of initials is max 3
+        alert("Please enter up to 3 letters for intials!"); 
+        return; //stop execution if length of initials exceeds 3
+    }else{ //capture initials and score
+        var highscore = {
+            initials: initalsIp.value,
+            score: score
+        }
     }
+
     highscores.push(highscore);
-    localStorage.setItem("highscores", JSON.stringify(highscores));
+    localStorage.setItem("highscores", JSON.stringify(highscores)); 
 
     //open highscores page
     loadHighscoresPage();
 
 })
 
+//To load View highscores page
 function loadHighscoresPage(){
     window.location = "highscores.html";
 }
