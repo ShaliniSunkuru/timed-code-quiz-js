@@ -99,7 +99,7 @@ choicesDiv.addEventListener("click", function(e){
     })
 function checkAnswer(index){
        if(index === currentQuestion.correctChoice){
-        score++;
+        score += 5;
         feedbackDiv.textContent = "Correct"
         correctSnd.play();
        }else{
