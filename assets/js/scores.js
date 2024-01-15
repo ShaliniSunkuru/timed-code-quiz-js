@@ -18,7 +18,8 @@ function displayHighscores(){
         highscoreLi.textContent = savedHighscores[i].initials;
         var highscoreSpan = document.createElement("span")
         highscoreSpan.textContent = savedHighscores[i].score;
-        highscoreSpan.setAttribute("style", "padding-left:100px")
+        highscoreSpan.setAttribute("style", "float:right");
+        highscoresOl.setAttribute("style", "width: 300px");
         highscoreLi.append(highscoreSpan);    
         highscoresOl.append(highscoreLi);
         }
