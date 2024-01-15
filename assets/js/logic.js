@@ -122,7 +122,10 @@ submitBtn.addEventListener("click", function(){
     if(localStorage.length > 0){
         highscores = JSON.parse(localStorage.getItem("highscores"));
     }
-    if(initalsIp.value.length > 3){ //check if length of initials is max 3
+    if(initalsIp.value.length === 0){
+        alert("Please enter initials to save score!")
+        return;
+    }else if(initalsIp.value.length > 3){ //check if length of initials is max 3
         alert("Please enter up to 3 letters for intials!"); 
         return; //stop execution if length of initials exceeds 3
     }else{ //capture initials and score
