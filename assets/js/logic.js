@@ -15,8 +15,8 @@ var score = 0;
 var timeLeft = 75;
 var timeInterval;
 var highscores = [];
-var correctSnd = new Audio("../sfx/correct.wav");
-var incorrectSnd = new Audio("../sfx/incorrect.wav");
+var correctSnd = new Audio("assets/sfx/correct.wav");
+var incorrectSnd = new Audio("assets/sfx/incorrect.wav");
 
 function setTimer(){
     
