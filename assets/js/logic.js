@@ -14,8 +14,9 @@ var currentQuestion;
 var score = 0;
 var timeLeft = 75;
 var timeInterval;
-var highscores = []
-
+var highscores = [];
+var correctSnd = new Audio("../assets/sfx/correct.wav");
+var incorrectSnd = new Audio("../assets/sfx/incorrect.wav");
 
 function setTimer(){
     
@@ -100,9 +101,11 @@ function checkAnswer(index){
        if(index === currentQuestion.correctChoice){
         score++;
         feedbackDiv.textContent = "Correct"
+        correctSnd.play();
        }else{
         feedbackDiv.textContent = "Wrong"
         timeLeft = timeLeft - 10;
+        incorrectSnd.play();
        }
         
 }
