@@ -11,7 +11,7 @@ clearBtn.addEventListener("click", function(){
 
 function displayHighscores(){
     if(localStorage.length > 0){
-        savedHighscores = JSON.parse(localStorage.getItem("highscores"));
+        savedHighscores = JSON.parse(localStorage.getItem("highscores")).reverse();
 
     for(var i = 0; i < savedHighscores.length; i ++){
         var highscoreLi = document.createElement("li");
